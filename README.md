@@ -52,6 +52,7 @@ where:
 #### **🦊 Grey Wolf Optimization (GWO)**  
 - Inspired by **wolf pack hunting behavior**.  
 - Uses **alpha, beta, delta wolves** to guide search space updates.
+  
   D = | C * X_p(t) - X(t) |
 
   X(t+1) = X_p(t) - A * D
@@ -60,7 +61,8 @@ where:
   
   C = 2a * r_2
   
-- **Formula for position update:**  
+- **Formula for position update:**
+  
   D_alpha = | C1 * X_alpha - X |
   D_beta  = | C2 * X_beta  - X |
   D_delta = | C3 * X_delta - X |
