@@ -64,24 +64,30 @@ where:
 - **Formula for position update:**
   
   D_alpha = | C1 * X_alpha - X |
-  D_beta  = | C2 * X_beta  - X |
-  D_delta = | C3 * X_delta - X |
   
+  D_beta  = | C2 * X_beta  - X |
+  
+  D_delta = | C3 * X_delta - X |
+
   X1 = X_alpha - A1 * D_alpha
+  
   X2 = X_beta  - A2 * D_beta
+  
   X3 = X_delta - A3 * D_delta
   
   X(t+1) = (X1 + X2 + X3) / 3
-  where (A, C) are control parameters.  
+  
+  where **A, C** are control parameters.  
 
 #### **🐦 Particle Swarm Optimization (PSO)**  
 - Inspired by **bird flocking behavior**.  
-- Particles adjust their velocity and position based on:  
+- Particles adjust their velocity and position based on:
+   
   v_i(t+1) = ω * v_i(t) + c1 * r1_i * (p_i,best - x_i(t)) + c2 * r2_i * (g_best - x_i(t))
 
   x_i(t+1) = x_i(t) + v_i(t+1)
 
-  where \( w \) is the inertia factor, \( c_1, c_2 \) are acceleration coefficients.  
+  where **ω** is the inertia factor, **c1,c2** are acceleration coefficients.  
 
 ### **3. Computational Setup**  
 - **Processor:** Intel Core i5-6200U @ 2.30 GHz  
