@@ -32,13 +32,13 @@ The **objective** is to maximize **profit** while considering the following cons
 ### **1. Problem Definition (MCBK Model)**  
 The **Multiple Constraints Bounded Knapsack Problem (MCBK)** is formulated as:  
 
-Maximize:  
-z = ∑ pᵢ xᵢ  
+**Maximize:  
+z = ∑ pᵢ xᵢ**  
 
-Subject to:  
+**Subject to:  
 ∑ wᵢ xᵢ ≤ W  
 ∑ vᵢ xᵢ ≤ V  
-∑ cᵢ xᵢ ≤ M  
+∑ cᵢ xᵢ ≤ M**  
 
 where:  
 - pᵢ = profit of item i  
@@ -53,29 +53,29 @@ where:
 - Inspired by **wolf pack hunting behavior**.  
 - Uses **alpha, beta, delta wolves** to guide search space updates.
   
-  D = | C * X_p(t) - X(t) |
+  **D = | C * X_p(t) - X(t) |**
 
-  X(t+1) = X_p(t) - A * D
+  **X(t+1) = X_p(t) - A * D**
   
-  A = 2a * r_1 - a
+  **A = 2a * r_1 - a**
   
-  C = 2a * r_2
+  **C = 2a * r_2**
   
 - **Formula for position update:**
   
-  D_alpha = | C1 * X_alpha - X |
+  **D_alpha = | C1 * X_alpha - X |**
   
-  D_beta  = | C2 * X_beta  - X |
+  **D_beta  = | C2 * X_beta  - X |**
   
-  D_delta = | C3 * X_delta - X |
+  **D_delta = | C3 * X_delta - X |**
 
-  X1 = X_alpha - A1 * D_alpha
+  **X1 = X_alpha - A1 * D_alpha**
   
-  X2 = X_beta  - A2 * D_beta
+  **X2 = X_beta  - A2 * D_beta**
   
-  X3 = X_delta - A3 * D_delta
+  **X3 = X_delta - A3 * D_delta**
   
-  X(t+1) = (X1 + X2 + X3) / 3
+  **X(t+1) = (X1 + X2 + X3) / 3**
   
   where **A, C** are control parameters.  
 
@@ -83,9 +83,9 @@ where:
 - Inspired by **bird flocking behavior**.  
 - Particles adjust their velocity and position based on:
    
-  v_i(t+1) = ω * v_i(t) + c1 * r1_i * (p_i,best - x_i(t)) + c2 * r2_i * (g_best - x_i(t))
+  **v_i(t+1) = ω * v_i(t) + c1 * r1_i * (p_i,best - x_i(t)) + c2 * r2_i * (g_best - x_i(t))**
 
-  x_i(t+1) = x_i(t) + v_i(t+1)
+  **x_i(t+1) = x_i(t) + v_i(t+1)**
 
   where **ω** is the inertia factor, **c1,c2** are acceleration coefficients.  
 
