@@ -32,40 +32,53 @@ The **objective** is to maximize **profit** while considering the following cons
 ### **1. Problem Definition (MCBK Model)**  
 The **Multiple Constraints Bounded Knapsack Problem (MCBK)** is formulated as:  
 
-\[
-\text{Maximize } z = \sum p_i x_i
-\]  
-subject to:  
-\[
-\sum w_i x_i \leq W, \quad \sum v_i x_i \leq V, \quad \sum c_i x_i \leq M
-\]  
+Maximize:  
+z = ∑ pᵢ xᵢ  
+
+Subject to:  
+∑ wᵢ xᵢ ≤ W  
+∑ vᵢ xᵢ ≤ V  
+∑ cᵢ xᵢ ≤ M  
+
 where:  
-- \( p_i \) = profit of item \( i \)  
-- \( x_i \) = quantity of item \( i \) (decision variable)  
-- \( w_i \) = weight per unit  
-- \( v_i \) = volume per unit  
-- \( c_i \) = cost per unit  
-- \( W, V, M \) = maximum weight, volume, and budget  
+- pᵢ = profit of item i  
+- xᵢ = quantity of item i (decision variable)  
+- wᵢ = weight per unit  
+- vᵢ = volume per unit  
+- cᵢ = cost per unit  
+- W, V, M = maximum weight, volume, and budget  
 
 ### **2. Algorithm Implementations**  
 #### **🦊 Grey Wolf Optimization (GWO)**  
 - Inspired by **wolf pack hunting behavior**.  
-- Uses **alpha, beta, delta wolves** to guide search space updates.  
+- Uses **alpha, beta, delta wolves** to guide search space updates.
+  D = | C * X_p(t) - X(t) |
+
+  X(t+1) = X_p(t) - A * D
+  
+  A = 2a * r_1 - a
+  
+  C = 2a * r_2
+  
 - **Formula for position update:**  
-  \[
-  X(t+1) = X_{\alpha} - A \cdot |C \cdot X_{\alpha} - X|
-  \]  
-  where \( A, C \) are control parameters.  
+  D_alpha = | C1 * X_alpha - X |
+  D_beta  = | C2 * X_beta  - X |
+  D_delta = | C3 * X_delta - X |
+  
+  X1 = X_alpha - A1 * D_alpha
+  X2 = X_beta  - A2 * D_beta
+  X3 = X_delta - A3 * D_delta
+  
+  X(t+1) = (X1 + X2 + X3) / 3
+  where (A, C) are control parameters.  
 
 #### **🐦 Particle Swarm Optimization (PSO)**  
 - Inspired by **bird flocking behavior**.  
 - Particles adjust their velocity and position based on:  
-  \[
-  v_i(t+1) = w v_i(t) + c_1 r_1 (pbest_i - x_i) + c_2 r_2 (gbest - x_i)
-  \]  
-  \[
+  v_i(t+1) = ω * v_i(t) + c1 * r1_i * (p_i,best - x_i(t)) + c2 * r2_i * (g_best - x_i(t))
+
   x_i(t+1) = x_i(t) + v_i(t+1)
-  \]  
+
   where \( w \) is the inertia factor, \( c_1, c_2 \) are acceleration coefficients.  
 
 ### **3. Computational Setup**  
